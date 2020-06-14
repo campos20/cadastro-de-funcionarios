@@ -18,64 +18,25 @@
 
 <h:body>
 	<div class="container">
-		<h1>Cadastro de Funcionários</h1>
+		<h1>Detalhe do funcionário</h1>
 		<h:form>
 			<div class="form-group">
 				<h:outputLabel for="nome-input">Nome</h:outputLabel>
-				<h:inputText class="form-control" id="nome-input" placeholder="Nome"
-					value="#{funcionario.nome}" />
+				<h:inputText class="form-control" id="nome-input" disabled="true"
+					value="#{funcionarios.funcionarioSelecionado.nome}" />
 			</div>
 
 			<div class="form-group">
 				<h:outputLabel for="setor-input">Setor</h:outputLabel>
-				<h:inputText class="form-control" placeholder="Setor"
-					id="setor-input" value="#{funcionario.setor}" />
+				<h:inputText class="form-control" disabled="true"
+					id="setor-input" value="#{funcionarios.funcionarioSelecionado.setor}" />
 			</div>
 
 			<div class="form-group">
 				<h:outputLabel for="salario-input">Salário</h:outputLabel>
-				<h:inputText class="form-control" placeholder="Salário"
-					id="salario-input" value="#{funcionario.salario}" />
+				<h:inputText class="form-control" disabled="true"
+					id="salario-input" value="#{funcionarios.funcionarioSelecionado.salario}" />
 			</div>
-
-			<h:commandButton value="Adicionar" class="btn btn-info"
-				action="#{funcionarios.adicionar(funcionario)}" />
-
-			<h:dataTable class="table table-bordered table-striped"
-				value="#{funcionarios.funcionarios}" var="func">
-				<h:column>
-					<f:facet name="header">Id</f:facet>
-					<h:outputText value="#{func.id}" />
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">Nome</f:facet>
-					<h:commandLink action="#{funcionarios.selecionarFuncionario(func)}"
-						outcome="funcionario">
-						<h:outputText value="#{func.nome}" />
-					</h:commandLink>
-				</h:column>
-
-
-				<h:column>
-					<f:facet name="header">Setor</f:facet>
-					<h:outputText value="#{func.setor}" />
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">Salário</f:facet>
-					<h:outputText value="#{func.salario}">
-						<f:convertNumber pattern="R$ #0.00" />
-					</h:outputText>
-				</h:column>
-
-				<h:column>
-					<h:commandButton value="Remover" class="btn btn-danger"
-						action="#{funcionarios.remover(func)}" />
-				</h:column>
-
-			</h:dataTable>
-
 		</h:form>
 
 	</div>
