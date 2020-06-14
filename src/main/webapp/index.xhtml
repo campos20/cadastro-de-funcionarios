@@ -41,8 +41,35 @@
 				</div>
 
 				<div>
-					<h:commandButton value="Adicionar" class="btn btn-info" />
+					<h:commandButton value="Adicionar" class="btn btn-info"
+						action="#{funcionarios.adicionar(funcionario)}" />
 				</div>
+
+				<h:dataTable value="#{funcionarios.funcionarios}" var="func"
+					class="table table-striped table-hover">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{func.nome}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Setor</f:facet>
+						<h:outputText value="#{func.setor}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Salário</f:facet>
+						<h:outputText value="#{func.salario}">
+							<f:convertNumber pattern="R$ #0.00"/>
+						</h:outputText>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Remover" class="btn btn-danger"
+						action="#{funcionarios.remover(func)}" />
+					</h:column>
+
+				</h:dataTable>
 
 			</h:form>
 

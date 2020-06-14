@@ -18,4 +18,12 @@ public class FuncionariosBean {
 	public List<FuncionarioBean> getFuncionarios() {
 		return funcionarios;
 	}
+	
+	public void adicionar(FuncionarioBean funcionario) {
+		funcionarios.add(funcionario);
+	}
+	
+	public void remover(FuncionarioBean funcionario) {
+		funcionarios.remove(funcionario);
+	}
 }
